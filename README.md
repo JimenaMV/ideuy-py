@@ -7,9 +7,9 @@
 
 # Contenido
 1. [Resumen](#Resumen)
-2. [Guía de instalación](#Guía%20de%20instalación)
+2. [Guía de instalación](#Guía-de-instalación)
 4. []()
-5. [Contacto]()#Contacto
+5. [Contacto](#Contacto)
 6. [Contribución](#Contribución)
 7. [Licencia](#Licencia)
 
