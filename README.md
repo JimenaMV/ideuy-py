@@ -1,3 +1,8 @@
+<!-- <img src='http://drive.google.com/uc?export=view&id=1wUy_yiXHLJo2uYeGEpvhaj73yI8eM1ik' class=text-center />
+<div class=pull-right>Ideuy-py</div> -->
+
+
+
 ![ideuy-logo]( http://drive.google.com/uc?export=view&id=1wUy_yiXHLJo2uYeGEpvhaj73yI8eM1ik)
 # Ideuy-py
 
@@ -5,7 +10,7 @@
 ![badge-version](https://img.shields.io/badge/version-0.1.0-yellow)
 ![badge-build](https://img.shields.io/badge/build%20with-python-yellow)
 
-# Contenido
+# 📔Contenido
 1. [Resumen](#Resumen)
 2. [Guía de instalación](#Guía-de-instalación)
 4. [Desarrollo](#Desarrollo)
@@ -14,14 +19,14 @@
 7. [Licencia](#Licencia)
 
 
-# Resumen
+# 📰Resumen
 
 Herramienta y paquete de Python que facilita la descarga programática de las
 ortoimágenes del vuelo fotogramétrico, disponibles desde el Visualizador online
 de la [Infraestructura de Datos Espaciales de Uruguay
 (IDEuy)](https://www.gub.uy/infraestructura-datos-espaciales/).
 
-## Guía de instalación
+## 🔧Guía de instalación
 
 El paquete se puede instalar con pip, ejecutando desde una terminal:
 
@@ -48,12 +53,12 @@ pip install -e .
 ## Tecnologías utilizadas
    - [Python](https://www.python.org/)
 
-## Contacto
+## 💻Contacto
 
 En caso de consultas sobre este paquete, IDEUY o contactos de prensa puede dirigirse a munshkr@gmail.com. 
 
-## Contribución
+## 🙌Contribución
 
-## Licencia
+## 📜Licencia
 
 Ver [LICENSE.txt](LICENSE.txt).
