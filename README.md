@@ -13,7 +13,6 @@
    
 <img  src="https://img.shields.io/github/last-commit/datauy/ElijoEstudiar">
 <img  src="https://img.shields.io/website?up_color=green&up_message=online&url=https%3A%2F%2Felijoestudiar.edu.uy%2F%23%2Fintro">
-<img  src="https://img.shields.io/badge/built%20with-ionic-blue">
 <a href="https://sonarcloud.io/dashboard?id=datauy_ElijoEstudiar" target="_blank"><img src="https://sonarcloud.io/api/project_badges/measure?project=datauy_ElijoEstudiar&metric=alert_status"></a>
 </p>
 
@@ -49,6 +48,9 @@ La IDE tiene como cometidos liderar la articulación y el fortalecimiento de la 
 
 ### Antecedentes
 
+*IDEUY-py surge de un pryecto que tuvimos con el gobierno de Uruguay donde nos disponiamos a usar las imágenes disponibles en el [visualizador](https://visualizador.ide.uy/ideuy/core/load_public_project/ideuy/) y nos dimos cuenta de que era complicado obtener imagenes de cierta área que quisieramos, esta herramienta cuenta con un buscador y podemos trazar un area rectangular para obtener las imagenes. Sin embargo, al querer descargarlas también encontramos que se hacia lenta al ser manual.
+Decidimos entonces crear una herramienta que facilite el filtrado y descarga de estas imágenes para su posterior uso.*
+
 En julio de 2018 se conformó dentro de la IDEuy el Grupo de Trabajo sobre Imágenes Satelitales. La finalidad de este grupo es el intercambio de información y la coordinación interinstitucional para ordenar la producción, facilitar la disponibilidad, el acceso y uso de productos, servicios e información geográfica proveniente de sensores satelitales, como apoyo a los procesos de toma de decisiones para el desarrollo nacional, con una perspectiva de corto, mediano y largo plazo. 
 
 Dentro de esta línea de trabajo también resalta un proyecto de cooperación internacional, que permitirá disponer en Uruguay de un Sistema de Aplicación Móvil de Recepción y Procesamiento de Datos Meteorológicos Satelitales Integrados Multisatélite. Este equipamiento se utilizará para la descarga y procesamiento de imágenes satelitales de plataformas como NOAA18, MODIS (Terra, Aqua) y FY-3D las cuales sirven como sustento en la gestión de temas atmosféricos, ambientales, forestales y de uso del suelo. Este equipo es fruto de un convenio firmado entre el Ministerio de Educación y Cultura (Uruguay) y el Ministerio de Ecología y Medio Ambiente (República Popular de China).
@@ -57,62 +59,34 @@ Dentro de esta línea de trabajo también resalta un proyecto de cooperación in
 
 ## :notebook: Guía de instalación y uso
 
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
+### 📋 Pre-requisitos generales
 
-### 📋 Pre-requisitos
-#### Para plataforma Web.
- - #### [Node.js](https://nodejs.org/en/)  >=10.19.0 <=11.15.0
+ - #### [Python](https://www.python.org/)  v3.6 
+ - #### [PIP](https://pypi.org/project/pip/)
 
-Este proyecto requiere alguna de las versiones especificadas. Para evitar conflictos de versiones en tu sistema operativo recomendamos utilizar algún Node Version Manager, que permite usar multiples versiones de Node en un solo equipo.
+Aseguremonos de tener instalado **GDAL** para poder iniciar la instalación.
  
-**Linux y macOS**
-
-Para ambos existe [nvm](https://github.com/nvm-sh/nvm), que puedes instalar mediante alguno de los siguientes comandos:
+### **Linux y macOS**
+   #### **GDAL**
 
 ```
-  $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-```
-```
-  $ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+  $ sudo easy_install GDAL
 ```
 
-Si tienes problemas con la instalación, dirigete a su [repositorio](https://github.com/nvm-sh/nvm#troubleshooting-on-linux) para encontrar pistas.
+Si tienes problemas con la instalación, dirigete a su [web](https://pypi.org/project/GDAL/) para encontrar pistas.
 
-**Windows**
+Ahora podemos instalar el paquete sin problemas:
+```
+pip install --user ideuy
+```
+### **Windows**
 
 Para Windows está disponible [nvm-windows](https://github.com/coreybutler/nvm-windows), cuyo instalador puedes descargar [aqui](https://github.com/coreybutler/nvm-windows/releases). Toma en consideración que para usar este paquete debes remover versiones existentes de node y npm antes de instalar.
 
 Para más información dirígete al [proyecto](https://github.com/coreybutler/nvm-windows)
-<br>
-
-Una vez instalado, realizaremos el cambio de versión antes de agregar las demás herramientas (aplica para Linux, macOS y Windows):
-
-````
-  $ nvm install #versión (>=10.19.0 <=11.15.0)
-  $ nvm use #versión (>=10.19.0 <=11.15.0)
-````
 
 
-- **[Ionic](https://ionicframework.com/docs/cli)** como framework base.
-- **[Gulp](https://gulpjs.com/docs/en/getting-started/quick-start/)** para automatizar tasks.
-- **[Bower](https://github.com/bower/bower)** para mantener actualizadas nuestras librerías.
-- **[Cordova](https://ionicframework.com/docs/v3/intro/installation/)** para soporte de apps nativas.
-```
-  $ npm install -g @ionic/cli gulp-cli bower cordova
-```
-
-<br>
-
-
-## 🔧Guía de instalación
-
-El paquete se puede instalar con pip, ejecutando desde una terminal:
-
-```
-pip install --user ideuy
-```
-
-## Uso
+### **Uso**
 
 ### Scripts de consola disponibles
 
