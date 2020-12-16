@@ -136,7 +136,9 @@ pip install -e .
 
 </details>
 
-  
+##  Autores
+Puede dirigirse a [AUTHORS.rst](AUTHORS.rst).
+
 ##  :e-mail: Contacto
 
 En caso de consultas sobre este paquete, IDEUY o contactos de prensa puede dirigirse a munshkr@gmail.com.
@@ -145,7 +147,7 @@ En caso de consultas sobre este paquete, IDEUY o contactos de prensa puede dirig
 
 ## 🤝 Contribuyendo
 
-Cualquier ayuda en las pruebas, el desarrollo, la documentación y otras tareas es muy apreciada y útil para el proyecto. Puedes escribirnos a dmunshkr@gmail.com en caso que te interese colaborar con el proyecto.
+Cualquier ayuda en las pruebas, el desarrollo, la documentación y otras tareas es muy apreciada y útil para el proyecto. Puedes escribirnos a munshkr@gmail.com en caso que te interese colaborar con el proyecto.
 
 <br>
 
