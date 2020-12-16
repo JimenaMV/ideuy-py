@@ -82,10 +82,7 @@ Ahora podemos instalar el paquete sin problemas:
 pip install --user ideuy
 ```
 ### **Windows**
-
-Para Windows está disponible [nvm-windows](https://github.com/coreybutler/nvm-windows), cuyo instalador puedes descargar [aqui](https://github.com/coreybutler/nvm-windows/releases). Toma en consideración que para usar este paquete debes remover versiones existentes de node y npm antes de instalar.
-
-Para más información dirígete al [proyecto](https://github.com/coreybutler/nvm-windows)
+El paquete fue desarrollado en linux, estamos generando los pasos para la implementación en Windows.
 
 
 ### Scripts de consola disponibles
@@ -153,6 +150,8 @@ L26C6N2_RGB_8_Remesa_07_SJM.jpg  L26D1O7_RGB_8_Remesa_07_SJM.jpg
 **Imágenes descargadas**: Para cada archivo .jpg hay un archivo de igual nombre pero con extensión .jgw. Estos archivos se llaman World files y siempre van en conjunto con los jpgs. Son archivos que incluyen información de georreferenciación de las imágenes.
 <img height="300"  src="https://drive.google.com/uc?id=1jzxtewRe9exUHOnIMfWRptpSSAWih-5K">
 
+Adicionalmente se puede consultar el siguiente video con el ejemplo de uso: https://www.youtube.com/watch?v=iLsfhEyAD48
+
 </details>
 
 ## :notebook: Ortoimágenes
@@ -186,13 +185,13 @@ Grilla nivel urbano
   
 ##  :e-mail: Contacto
 
-En caso de consultas sobre este paquete, IDEUY o contactos de prensa puede dirigirse a munshkr@gmail.com.
+En caso de consultas sobre este paquete dirigirse a munshkr@gmail.com o damian@dymaxionlabs.com
 
 <br>
 
 ## 🤝 Contribuyendo
 
-Cualquier ayuda en las pruebas, el desarrollo, la documentación y otras tareas es muy apreciada y útil para el proyecto. Puedes escribirnos a munshkr@gmail.com. en caso que te interese colaborar de otra forma.
+Cualquier ayuda en las pruebas, el desarrollo, la documentación y otras tareas es muy apreciada y útil para el proyecto. Puedes escribirnos a munshkr@gmail.com o a damian@dymaxionlabs.com en caso que te interese colaborar de otra forma.
 
 <br>
 
