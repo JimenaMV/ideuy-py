@@ -17,7 +17,6 @@
 <a  href="#notebook-guía-de-instalación-y-uso">Guía de instalación y uso</a> •
 <a  href="#chart_with_downwards_trend-datos-abiertos">Datos abiertos</a> •
 <a  href="#memo-procesamiento-de-datos">Procesamiento de datos</a> •
-<a  href="#open_hands-lenguaje-inclusivo">Lenguaje inclusivo</a> •
 <a  href="#---------acerca-de-data">Acerca de DATA</a> •
 <a  href="#e-mail-contacto">Contacto</a> •
 <a  href="#-contribuyendo">Contribuyendo</a> •
@@ -31,7 +30,7 @@
 IDEUY-py es una herramienta y paquete de Python que facilita y optimiza la descarga programática de las ortoimágenes del vuelo fotogramétrico, disponibles desde el Visualizador online de la [Infraestructura de Datos Espaciales de Uruguay
 (IDEuy)](https://www.gub.uy/infraestructura-datos-espaciales/).
 
-IDEUY-py surge de un proyecto generado con el gobierno de Uruguay el cual, implicaba el uso y descarga de múltiples ortoimágenes disponibles para su descarga manual en el [visualizador](https://visualizador.ide.uy/ideuy/core/load_public_project/ideuy/). Este visualizador es una herramienta que cuenta con un buscador, permitiéndo también trazar un area rectangular para obtener las imagenes. Sin embargo, implica una descarga poco óptima y lenta al ser una descarga manual. Por lo que se creo este paquete de Python para facilitar y optimizar la descarga de imágenes a través del filtrado del área de interés y descarga de ortoimágenes para su uso posterior.
+IDEUY-py surge de un proyecto generado con el gobierno de Uruguay el cual, implicaba el uso y descarga de múltiples ortoimágenes disponibles para su descarga manual en el [visualizador](https://visualizador.ide.uy/ideuy/core/load_public_project/ideuy/). Este visualizador es una herramienta que cuenta con un buscador, permitiéndo también trazar un area rectangular para obtener las imágenes. Sin embargo, implica una descarga poco óptima y lenta al ser una descarga manual. Por lo que se creo este paquete de Python para facilitar y optimizar la descarga de imágenes a través del filtrado del área de interés y descarga de ortoimágenes para su uso posterior.
 
 <details><summary><b>Origen, Objetivos y Antecedentes</b></summary>
 
@@ -95,8 +94,35 @@ Para más información dirígete al [proyecto](https://github.com/coreybutler/nv
 
 ### Scripts de consola disponibles
 
-* `ideuy_filter`: Filtra un shapefile de grilla con otro shapefile de Áreas de Interés (AOI).
-* `ideuy_download_images`: Descarga las imágenes del vuelo basado en un shapefile de grilla.
+* `ideuy_filter`: Filtra un shapefile de grilla (nacional o urbana) con otro shapefile de Áreas de Interés (AOI).
+* `ideuy_download_images`: Descarga imágenes (en paralelo) de un formato a partir de un shapefile de grilla (generado por ideuy_filter).
+
+Para obtener una lista de opciones de estos comandos:
+```
+ideuy_filter -h
+```
+```
+ideuy_download -h
+```
+#### **Ejemplo de uso**
+Supongamos que tenemos un Shapefile de polígonos, con áreas de interés. Se quiere descargar imágenes RGB en formato JPG, a nivel urbano.
+
+En general, los pasos a seguir son:
+
+- (opcional) Reproyecto shapefile a CRS epsg:5381 (es un requerimiento de ``ideuy_filter``)
+- Filtro la grilla nacional con el Shapefile, usando ``ideuy_filter``
+- Descargo imágenes con ``ideuy_download`` y la grilla filtrada
+
+![shapefile-grilla](http://drive.google.com/uc?export=view&id=1wwP-8AlJXWIAUHh9P0HrcZWbt8XEZkKo)
+
+Filtramos la grilla urbana. Esto genera un nuevo GeoJSON en data/ideuy/grilla_urbana_filtrada.geojson
+```
+ideuy_filter --type urban \
+              --output data/ideuy/ grilla_urbana_filtrada.geojson \
+              data/ideuy/areas.geojson
+```
+El comando anterior produce el archivo ``grilla_urbana_filtrada.geojson``, que contiene las hojas de la ortoimagen urbana que intersecan con los polígonos de ``areas.geojson``. Estas son las imágenes que debemos descargar.
+
 
 ## Desarrollo
 
@@ -107,42 +133,6 @@ virtualenv -p python3 .venv/
 source .venv/bin/activate
 pip install -e .
 ```
-
-###  🔧 	Instalación 
-
-Empezaremos por clonar el repositorio:
-```
-  $ git clone https://github.com/datauy/ElijoEstudiar.git
-  $ cd ElijoEstudiar/
-```
-Asegúrate de estar utilizando alguna de las versiones anteriormente especificadas:
-````
-  $ nvm use #versión
-````
-Instalamos el proyecto y actualizamos las librerías necesarias:
-
-````
-  $ npm install
-  $ bower install
-````
-
-<br>
-
-###  :computer: Uso  
-
-Una vez instalado el proyecto corremos las [tasks](https://github.com/datauy/ElijoEstudiar/blob/master/gulpfile.js) creadas con gulp:
-```
-  $ gulp
-```
-Por último iniciamos el servidor de desarrollo local para **plataforma web**:
-
-```
-  $ ionic serve
-```
-¡Y listo! El proyecto se iniciará en la dirección http://localhost:8100 de tu navegador predeterminado y se actualizará con cada cambio que realices.
-
-
-<br />
 
 </details>
 
@@ -155,7 +145,7 @@ En caso de consultas sobre este paquete, IDEUY o contactos de prensa puede dirig
 
 ## 🤝 Contribuyendo
 
-Como la mayoría de los proyectos que trabajan con datos abiertos y software libre, la retroalimentación de los usuarios es una herramienta fundamental para la mejora de los datos y su tratamiento, por lo que agradecemos e incentivamos la recepción de ideas, sugerencias o correcciones. Puedes escribirnos a dmunshkr@gmail.com. en caso que te interese colaborar de otra forma.
+Cualquier ayuda en las pruebas, el desarrollo, la documentación y otras tareas es muy apreciada y útil para el proyecto. Puedes escribirnos a dmunshkr@gmail.com en caso que te interese colaborar con el proyecto.
 
 <br>
 
@@ -163,8 +153,7 @@ Como la mayoría de los proyectos que trabajan con datos abiertos y software lib
 
 ### Disponibilidad del código como software libre 
 
-Copyright 2020 Dymaxion Labs
-Ver [LICENSE.txt](LICENSE.txt).
+El código fuente se libera bajo una licencia BSD-2. Por favor, consulte [LICENSE.txt](LICENSE.txt) para más información.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
