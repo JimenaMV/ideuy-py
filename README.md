@@ -192,7 +192,7 @@ En caso de consultas sobre este paquete, IDEUY o contactos de prensa puede dirig
 
 ## 🤝 Contribuyendo
 
-Como la mayoría de los proyectos que trabajan con datos abiertos y software libre, la retroalimentación de los usuarios es una herramienta fundamental para la mejora de los datos y su tratamiento, por lo que agradecemos e incentivamos la recepción de ideas, sugerencias o correcciones. Puedes escribirnos a dmunshkr@gmail.com. en caso que te interese colaborar de otra forma.
+Cualquier ayuda en las pruebas, el desarrollo, la documentación y otras tareas es muy apreciada y útil para el proyecto. Puedes escribirnos a munshkr@gmail.com. en caso que te interese colaborar de otra forma.
 
 <br>
 
