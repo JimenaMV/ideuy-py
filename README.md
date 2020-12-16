@@ -14,10 +14,7 @@
 
 <p  align="center">
 • <a  href="#-introducción">Introducción</a> •
-<a  href="#notebook-guía-de-instalación-y-uso">Guía de instalación y uso</a> •
-<a  href="#chart_with_downwards_trend-datos-abiertos">Datos abiertos</a> •
-<a  href="#memo-procesamiento-de-datos">Procesamiento de datos</a> •
-<a  href="#---------acerca-de-data">Acerca de DATA</a> •
+<a  href="#notebook-guía-de-instalación-y-uso">Ortoimágenes</a> •
 <a  href="#e-mail-contacto">Contacto</a> •
 <a  href="#-contribuyendo">Contribuyendo</a> •
 <a  href="#page_facing_up-licencia">Licencia, términos y condiciones</a> •
@@ -30,7 +27,7 @@
 IDEUY-py es una herramienta y paquete de Python que facilita y optimiza la descarga programática de las ortoimágenes del vuelo fotogramétrico, disponibles desde el Visualizador online de la [Infraestructura de Datos Espaciales de Uruguay
 (IDEuy)](https://www.gub.uy/infraestructura-datos-espaciales/).
 
-IDEUY-py surge de un proyecto generado con el gobierno de Uruguay el cual, implicaba el uso y descarga de múltiples ortoimágenes disponibles para su descarga manual en el [visualizador](https://visualizador.ide.uy/ideuy/core/load_public_project/ideuy/). Este visualizador es una herramienta que cuenta con un buscador, permitiéndo también trazar un area rectangular para obtener las imágenes. Sin embargo, implica una descarga poco óptima y lenta al ser una descarga manual. Por lo que se creo este paquete de Python para facilitar y optimizar la descarga de imágenes a través del filtrado del área de interés y descarga de ortoimágenes para su uso posterior.
+IDEUY-py surge de un proyecto generado con el gobierno de Uruguay el cual, implicaba el uso y descarga de múltiples ortoimágenes disponibles para su descarga manual en el [visualizador](https://visualizador.ide.uy/ideuy/core/load_public_project/ideuy/). Este visualizador es una herramienta que cuenta con un buscador, permitiéndo también trazar un area rectangular para obtener las imagenes. Sin embargo, implica una descarga poco óptima y lenta al ser una descarga manual. Por lo que se creo este paquete de Python para facilitar y optimizar la descarga de imágenes a través del filtrado del área de interés y descarga de ortoimágenes para su uso posterior.
 
 <details><summary><b>Origen, Objetivos y Antecedentes</b></summary>
 
@@ -61,6 +58,7 @@ Cabe destacar que, dada la necesidad de un acceso intensivo a imágenes del vuel
 </details>
 <br>
 
+
 ## :notebook: Guía de instalación y uso
 
 ### 📋 Pre-requisitos generales
@@ -90,55 +88,102 @@ Para Windows está disponible [nvm-windows](https://github.com/coreybutler/nvm-w
 Para más información dirígete al [proyecto](https://github.com/coreybutler/nvm-windows)
 
 
-### **Uso**
-
 ### Scripts de consola disponibles
 
-* `ideuy_filter`: Filtra un shapefile de grilla (nacional o urbana) con otro shapefile de Áreas de Interés (AOI).
-* `ideuy_download_images`: Descarga imágenes (en paralelo) de un formato a partir de un shapefile de grilla (generado por ideuy_filter).
+Una vez instalado el paquete iudey, la descarga de imágenes se realiza en dos etapas y para cada una de estas etapas existe un script diferente: filter y download
 
-Para obtener una lista de opciones de estos comandos:
-```
-ideuy_filter -h
-```
-```
-ideuy_download -h
-```
-#### **Ejemplo de uso**
+1. Filtro la grilla con el Shapefile, usando ideuy_filter
+
+* `ideuy_filter`: Filtra un shapefile de grilla con otro shapefile de Áreas de Interés (AOI). Genera un GeoJSON de grilla (nacional o urbana) con las hojas de interés.
+
+1.1 Al script filter se le pasa el archivo vectorial con los polígonos o área de interés
+1.2 Filter Genera un GeoJSON de grilla (nacional o urbana) con las hojas de interés.
+1.3 Dicho archivo solamente contendrá las hojas que intersectan con los polígonos de interés que son los que se descargarán.
+
+
+
+2. Descargo imágenes con ideuy_download y la grilla filtrada. Aquí, se le pasa el nuevo archivo vectorial generado con filter de la grilla ya filtrada y se descargan las imágenes en paralelo.
+
+* `ideuy_download_images`: Descarga las imágenes del vuelo basado en un shapefile de grilla. Descarga imágenes (en paralelo) de un formato a partir de un GeoJSON de grilla (generado por ideuy_filter).
+
+
+### **Ejemplo de Uso**
+
 Supongamos que tenemos un Shapefile de polígonos, con áreas de interés. Se quiere descargar imágenes RGB en formato JPG, a nivel urbano.
 
 En general, los pasos a seguir son:
+Teniendo ya un  Shapefile de los polígonos de nuestro interés:
 
-- (opcional) Reproyecto shapefile a CRS epsg:5381 (es un requerimiento de ``ideuy_filter``)
-- Filtro la grilla nacional con el Shapefile, usando ``ideuy_filter``
-- Descargo imágenes con ``ideuy_download`` y la grilla filtrada
+- Asegurarse que el Shapefile esté en formato CRS epsg:5381 (es un requerimiento de ideuy_filter)
+- Filtro la grilla nacional con el Shapefile, usando ideuy_filter 
+- Descargo imágenes con ideuy_download y la grilla filtrada
 
-![shapefile-grilla](http://drive.google.com/uc?export=view&id=1wwP-8AlJXWIAUHh9P0HrcZWbt8XEZkKo)
+Ejemplo de áreas de interés. Queremos descargar las hojas que contienen los polígonos de nuestro archivo vectorial.
+<img height="300"  src="https://drive.google.com/uc?id=1HZ-KQdC5SkbTV8yzkFQCOUvZmWHkUkuN">
+````
+# Filtramos la grilla urbana. Esto genera un nuevo GeoJSON en data/ideuy/grilla_urbana_filtrada.geojson
+Tiene 3 parámetros:
+!ideuy_filter --type urban \\ Tipo, urbano o nacional
+              --output data/ideuy/grilla_urbana_filtrada.geojson \\ Directorio de salida para el nuevo geojson
+              data/ideuy/areas.geojson \\ Geojson de entrada de los polígonos
+````
+El comando anterior produce el archivo grilla_urbana_filtrada.geojson, que contiene las hojas de la ortoimagen urbana que intersecan con los polígonos de areas.geojson. Estas son las imágenes que debemos descargar.
 
-Filtramos la grilla urbana. Esto genera un nuevo GeoJSON en data/ideuy/grilla_urbana_filtrada.geojson
-```
-ideuy_filter --type urban \
-              --output data/ideuy/ grilla_urbana_filtrada.geojson \
-              data/ideuy/areas.geojson
-```
-El comando anterior produce el archivo ``grilla_urbana_filtrada.geojson``, que contiene las hojas de la ortoimagen urbana que intersecan con los polígonos de ``areas.geojson``. Estas son las imágenes que debemos descargar.
+**Grilla urbana filtrada con áreas de interés**. Notar que el área que está fuera de la cobertura urbana no fue incluida. Para descargar imágenes que contenga ese polígono, habría que filtrar también a nivel nacional.
 
+`````
+!ideuy_download --type urban \\ Tipo, urbano o nacional
+                --product-type rgb_8bit \\ Formato en que se quiere descargar
+                --output-dir data/ideuy/images/ \\ Directorio de salida para las imágenes
+                --num-jobs 4 \\ Cuatro en paralelo
+                data/ideuy/grilla_urbana_filtrada.geojson \\ Archivo ya filtrado generado con filter
+`````
 
-## Desarrollo
+Este comando descarga en paralelo (máximo 4 hilos) las imágenes en formato RGB 8bit (jpg) en el directorio data/ideuy/images/, segun las hojas de grilla_urbana_filtrada.geojson.
 
-Crear un entorno virtual e instalar el paquete con pip en modo desarrollo, por ejemplo:
-
-```
-virtualenv -p python3 .venv/
-source .venv/bin/activate
-pip install -e .
-```
+`````
+!ls data/ideuy/images
+L26C3P6_RGB_8_Remesa_07_SJM.jgw  L26C6N3_RGB_8_Remesa_07_SJM.jgw
+L26C3P6_RGB_8_Remesa_07_SJM.jpg  L26C6N3_RGB_8_Remesa_07_SJM.jpg
+L26C3P9_RGB_8_Remesa_07_SJM.jgw  L26D1O4_RGB_8_Remesa_07_SJM.jgw
+L26C3P9_RGB_8_Remesa_07_SJM.jpg  L26D1O4_RGB_8_Remesa_07_SJM.jpg
+L26C6N2_RGB_8_Remesa_07_SJM.jgw  L26D1O7_RGB_8_Remesa_07_SJM.jgw
+L26C6N2_RGB_8_Remesa_07_SJM.jpg  L26D1O7_RGB_8_Remesa_07_SJM.jpg
+`````
+**Imágenes descargadas**: Para cada archivo .jpg hay un archivo de igual nombre pero con extensión .jgw. Estos archivos se llaman World files y siempre van en conjunto con los jpgs. Son archivos que incluyen información de georreferenciación de las imágenes.
+<img height="300"  src="https://drive.google.com/uc?id=1jzxtewRe9exUHOnIMfWRptpSSAWih-5K">
 
 </details>
 
-##  Autores
-Puede dirigirse a [AUTHORS.rst](AUTHORS.rst).
+## :notebook: Ortoimágenes
 
+### 📋 Estructura
+- Cada ortoimagen (urbana y nacional) está particionada en remesas
+- Cada remesa está subdividida en hojas.
+- Para cada hoja se tiene una imagen en 3 formatos diferentes:
+    - GeoTiff RGBI 16-bit: 4 bandas, RGB y NIR, con precisión de 16-bits
+    - GeoTiff RGBI 8-bit: 4 bandas, RGB y NIR, con precisión de 8-bits
+    - JPG RGB 8-bit: 3 bandas RGB, con precisión de 8-bits
+    
+
+Ejemplo imagen remesas
+
+<img height="300"  src="https://drive.google.com/uc?id=1UmMIGAmqk-QUlBxgXgPFcTfghF00RmCD">
+
+Grillas
+
+<img height="300"  src="https://drive.google.com/uc?id=1H-JdYO1J4Rks7tRByfYtlLT1kuWRGo7-">
+
+Grilla nivel nacional
+
+<img height="300"  src="https://drive.google.com/uc?id=1Ed5ZBq1iADfWkvRwU15nWiC9P-soex9X">
+
+Grilla nivel urbano
+
+<img height="300"  src="https://drive.google.com/uc?id=1cMe0j8PwVGGplQLgzMmtDBLz8vP9-wzu">
+
+
+  
 ##  :e-mail: Contacto
 
 En caso de consultas sobre este paquete, IDEUY o contactos de prensa puede dirigirse a munshkr@gmail.com.
@@ -147,7 +192,7 @@ En caso de consultas sobre este paquete, IDEUY o contactos de prensa puede dirig
 
 ## 🤝 Contribuyendo
 
-Cualquier ayuda en las pruebas, el desarrollo, la documentación y otras tareas es muy apreciada y útil para el proyecto. Puedes escribirnos a munshkr@gmail.com en caso que te interese colaborar con el proyecto.
+Como la mayoría de los proyectos que trabajan con datos abiertos y software libre, la retroalimentación de los usuarios es una herramienta fundamental para la mejora de los datos y su tratamiento, por lo que agradecemos e incentivamos la recepción de ideas, sugerencias o correcciones. Puedes escribirnos a dmunshkr@gmail.com. en caso que te interese colaborar de otra forma.
 
 <br>
 
@@ -155,7 +200,8 @@ Cualquier ayuda en las pruebas, el desarrollo, la documentación y otras tareas 
 
 ### Disponibilidad del código como software libre 
 
-El código fuente se libera bajo una licencia BSD-2. Por favor, consulte [LICENSE.txt](LICENSE.txt) para más información.
+Copyright 2020 Dymaxion Labs
+Ver [LICENSE.txt](LICENSE.txt).
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
