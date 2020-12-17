@@ -3,7 +3,7 @@
 <br>
 
 <p align="center">
-<img  height="200"  src=![logo-ideuy](https://user-images.githubusercontent.com/60664731/102507132-84d0d180-4049-11eb-8eb5-48be8a999a4f.png)>
+<img  height="200"  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCtXkOdL-iKuv-Y8wMZA8piyiHTkrzPlMPnA&usqp=CAU">
  
 </p>
 
@@ -117,7 +117,8 @@ Teniendo ya un  Shapefile de los polígonos de nuestro interés:
 - Descargo imágenes con ideuy_download y la grilla filtrada
 
 Ejemplo de áreas de interés. Queremos descargar las hojas que contienen los polígonos de nuestro archivo vectorial.
-<img height="300"  src="https://drive.google.com/uc?id=1HZ-KQdC5SkbTV8yzkFQCOUvZmWHkUkuN">
+![areas](https://user-images.githubusercontent.com/60664731/102508894-869b9480-404b-11eb-93f3-33d2256ad58e.jpg)
+
 ````
 # Filtramos la grilla urbana. Esto genera un nuevo GeoJSON en data/ideuy/grilla_urbana_filtrada.geojson
 Tiene 3 parámetros:
@@ -149,7 +150,7 @@ L26C6N2_RGB_8_Remesa_07_SJM.jgw  L26D1O7_RGB_8_Remesa_07_SJM.jgw
 L26C6N2_RGB_8_Remesa_07_SJM.jpg  L26D1O7_RGB_8_Remesa_07_SJM.jpg
 `````
 **Imágenes descargadas**: Para cada archivo .jpg hay un archivo de igual nombre pero con extensión .jgw. Estos archivos se llaman World files y siempre van en conjunto con los jpgs. Son archivos que incluyen información de georreferenciación de las imágenes.
-<img height="300"  src="https://drive.google.com/uc?id=1jzxtewRe9exUHOnIMfWRptpSSAWih-5K">
+![imagenes_descargadas](https://user-images.githubusercontent.com/60664731/102508902-88fdee80-404b-11eb-99fa-29b0bda10a85.jpg)
 
 Adicionalmente se puede consultar el siguiente video con el ejemplo de uso: https://www.youtube.com/watch?v=iLsfhEyAD48
 
@@ -167,20 +168,19 @@ Adicionalmente se puede consultar el siguiente video con el ejemplo de uso: http
     
 
 Ejemplo imagen remesas
-
-<img height="300"  src="https://drive.google.com/uc?id=1UmMIGAmqk-QUlBxgXgPFcTfghF00RmCD">
+![remesas](https://user-images.githubusercontent.com/60664731/102508930-93b88380-404b-11eb-86c7-c667bf0dbfa3.jpg)
 
 Grillas
 
-<img height="300"  src="https://drive.google.com/uc?id=1H-JdYO1J4Rks7tRByfYtlLT1kuWRGo7-">
+![grillas](https://user-images.githubusercontent.com/60664731/102508929-931fed00-404b-11eb-8532-9bcc3a836b21.jpg)
 
 Grilla nivel nacional
 
-<img height="300"  src="https://drive.google.com/uc?id=1Ed5ZBq1iADfWkvRwU15nWiC9P-soex9X">
+![nacional](https://user-images.githubusercontent.com/60664731/102508928-92875680-404b-11eb-8144-93e33016dbd3.jpg)
 
 Grilla nivel urbano
 
-<img height="300"  src="https://drive.google.com/uc?id=1cMe0j8PwVGGplQLgzMmtDBLz8vP9-wzu">
+![urbana](https://user-images.githubusercontent.com/60664731/102508921-9024fc80-404b-11eb-8334-b092e26f2c41.jpg)
 
 
   
