@@ -3,7 +3,7 @@
 <br>
 
 <p align="center">
-<img  height="200"  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCtXkOdL-iKuv-Y8wMZA8piyiHTkrzPlMPnA&usqp=CAU">
+<img  height="200"  src="![logo-ideuy](https://user-images.githubusercontent.com/60664731/102503581-7d0f2e00-4045-11eb-80a8-cd83252592cb.png)">
 </p>
 
 <p align="center">
@@ -22,7 +22,7 @@
 
 <br>
 
-## <img src="https://www.gub.uy/infraestructura-datos-espaciales/sites/infraestructura-datos-espaciales/files/catalogo/IDE.jpg" height="26"> Introducción
+## <img src="![IDE](https://user-images.githubusercontent.com/60664731/102503587-7da7c480-4045-11eb-9111-adc68927ffd3.jpg)" height="26"> Introducción
 
 IDEUY-py es una herramienta y paquete de Python que facilita y optimiza la descarga programática de las ortoimágenes del vuelo fotogramétrico, disponibles desde el Visualizador online de la [Infraestructura de Datos Espaciales de Uruguay
 (IDEuy)](https://www.gub.uy/infraestructura-datos-espaciales/).
@@ -116,7 +116,7 @@ Teniendo ya un  Shapefile de los polígonos de nuestro interés:
 - Descargo imágenes con ideuy_download y la grilla filtrada
 
 Ejemplo de áreas de interés. Queremos descargar las hojas que contienen los polígonos de nuestro archivo vectorial.
-<img height="300"  src="https://drive.google.com/uc?id=1HZ-KQdC5SkbTV8yzkFQCOUvZmWHkUkuN">
+<img height="300"  src="![areas](https://user-images.githubusercontent.com/60664731/102504081-0161b100-4046-11eb-936b-be0ec6c80002.jpg)">
 ````
 # Filtramos la grilla urbana. Esto genera un nuevo GeoJSON en data/ideuy/grilla_urbana_filtrada.geojson
 Tiene 3 parámetros:
@@ -148,7 +148,8 @@ L26C6N2_RGB_8_Remesa_07_SJM.jgw  L26D1O7_RGB_8_Remesa_07_SJM.jgw
 L26C6N2_RGB_8_Remesa_07_SJM.jpg  L26D1O7_RGB_8_Remesa_07_SJM.jpg
 `````
 **Imágenes descargadas**: Para cada archivo .jpg hay un archivo de igual nombre pero con extensión .jgw. Estos archivos se llaman World files y siempre van en conjunto con los jpgs. Son archivos que incluyen información de georreferenciación de las imágenes.
-<img height="300"  src="https://drive.google.com/uc?id=1jzxtewRe9exUHOnIMfWRptpSSAWih-5K">
+<img height="300"  src="![imagenes_descargadas](https://user-images.githubusercontent.com/60664731/102504934-083cf380-4047-11eb-82d6-6fcb75511074.jpg)
+">
 
 Adicionalmente se puede consultar el siguiente video con el ejemplo de uso: https://www.youtube.com/watch?v=iLsfhEyAD48
 
@@ -167,19 +168,19 @@ Adicionalmente se puede consultar el siguiente video con el ejemplo de uso: http
 
 Ejemplo imagen remesas
 
-<img height="300"  src="https://drive.google.com/uc?id=1UmMIGAmqk-QUlBxgXgPFcTfghF00RmCD">
+<img height="300"  src="![remesas](https://user-images.githubusercontent.com/60664731/102504309-45ed4c80-4046-11eb-8af9-8d7fb3e462cb.jpg)">
 
 Grillas
 
-<img height="300"  src="https://drive.google.com/uc?id=1H-JdYO1J4Rks7tRByfYtlLT1kuWRGo7-">
+<img height="300"  src="![grillas](https://user-images.githubusercontent.com/60664731/102504316-484fa680-4046-11eb-90bd-aa141b4d3d37.jpg)">
 
 Grilla nivel nacional
 
-<img height="300"  src="https://drive.google.com/uc?id=1Ed5ZBq1iADfWkvRwU15nWiC9P-soex9X">
+<img height="300"  src="![nacional](https://user-images.githubusercontent.com/60664731/102504319-48e83d00-4046-11eb-904c-267890882e69.jpg)">
 
 Grilla nivel urbano
 
-<img height="300"  src="https://drive.google.com/uc?id=1cMe0j8PwVGGplQLgzMmtDBLz8vP9-wzu">
+<img height="300"  src="![nacional](https://user-images.githubusercontent.com/60664731/102504319-48e83d00-4046-11eb-904c-267890882e69.jpg)">
 
 
   
